@@ -1,0 +1,37 @@
+{
+  "name": "grunt-slack-notifier",
+  "description": "Slack notifications from grunt",
+  "version": "0.0.1",
+  "author": "Germán Robledo <germanrcuriel@gmail.com>",
+  "dependencies": {
+    "slack-api-client": "^0.0.2"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-coffee": "^0.13.0"
+  },
+  "peerDependencies": {
+    "grunt": ">=0.4.0"
+  },
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "files": [
+    "tasks"
+  ],
+  "scripts": {
+    "prepublish": "grunt build"
+  },
+  "keywords": [
+    "gruntplugin",
+    "grunt",
+    "slack",
+    "notifier"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/germanrcuriel/grunt-slack-notifier.git"
+  }
+}
