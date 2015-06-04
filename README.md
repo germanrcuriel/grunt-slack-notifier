@@ -77,4 +77,5 @@ slack_notifier: {
 
 ## Release history
 
+ * 2015-06-04 v0.0.3  Fix package.json keywords
  * 2015-03-31 v0.0.2  First release
