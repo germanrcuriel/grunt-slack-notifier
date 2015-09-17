@@ -9,7 +9,7 @@ module.exports = (grunt) ->
 
     slack.api.chat.postMessage
       channel: options.channel
-      text: options.text
+      text: if typeof options.text == 'function' then options.text(grunt, options) else options.text
       username: options.username
     , (err, res) ->
       grunt.fatal err if err
