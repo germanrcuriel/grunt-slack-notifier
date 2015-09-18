@@ -47,7 +47,7 @@ module.exports = (grunt) ->
 
   ###*
   * @description Sends a message to Slack using the Slack API client
-  * @param {Object} options An object containing the configuration parameters for postMessage
+  * @param {options} options An object containing the configuration parameters for postMessage
   * @param {Function} cb Callback function called when the postMessage call finished.
   ###
   sendMessage = (options, cb) ->
