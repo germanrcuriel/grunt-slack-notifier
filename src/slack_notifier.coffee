@@ -59,14 +59,14 @@ module.exports = (grunt) ->
       channel: options.channel
       text: if typeof options.text is 'function' then options.text(grunt, options) else options.text
       username: options.username
-      as_user: options.as_user || null,
-      parse: options.parse || null,
-      link_names: options.link_names || null
+      as_user: options.as_user,
+      parse: options.parse,
+      link_names: options.link_names
       attachments: if grunt.util.kindOf(options.attachments) is 'array' then JSON.stringify(options.attachments) else null
-      unfurl_links: options.unfurl_links || null
-      unfurl_media: options.unfurl_media || null
-      icon_url: options.icon_url || null
-      icon_emoji: options.icon_emoji || null
+      unfurl_links: options.unfurl_links
+      unfurl_media: options.unfurl_media
+      icon_url: options.icon_url
+      icon_emoji: options.icon_emoji
     , (err, res) ->
       grunt.fatal err if err
       grunt.log.ok 'Notification sent!'
