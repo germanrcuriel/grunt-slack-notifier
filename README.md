@@ -25,7 +25,7 @@ grunt.loadNpmTasks('grunt-slack-notifier');
 *This plugin was designed to work with Grunt 0.4.x. If you're still using grunt v0.3.x it's strongly recommended that [you upgrade](http://gruntjs.com/upgrading-from-0.3-to-0.4), but in case you can't please use [v0.3.2](https://github.com/gruntjs/grunt-contrib-copy/tree/grunt-0.3-stable).*
 
 
-## "slack_notifier" task
+## 'slack_notifier' task
 _Run this task with the `grunt slack_notifier` command._
 
 Task targets, files and options may be specified according to the grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.
@@ -59,6 +59,54 @@ Default: `Grunt.js`
 
 Name of bot.
 
+#### as_user
+Type: `Boolean`
+Default: `false`
+
+Set to true to post the message as the authenticated user (based on token). In that case `username`, `icon_url` and `icon_emoji` settings will be ignored
+
+#### parse
+Type: `String`
+Default: `full`
+
+Set to `none` to let Slack handle the message as plain text without escaping entities
+
+#### link_names
+Type: `Boolean`
+Default: `false`
+
+Set to true if you want references to private/public channels or users to be automatically linked
+
+#### attachments
+Type: `Array`
+Default: `null`
+
+An list of attachements for your message. See https://api.slack.com/docs/attachments#message_formatting
+
+#### unfurl_links
+Type: `Boolean`
+Default: `true`
+
+See https://api.slack.com/docs/unfurling
+
+#### unfurl_media
+Type: `Boolean`
+Default: `false`
+
+See https://api.slack.com/docs/unfurling
+
+#### icon_url
+Type: `String`
+Default: `null`
+
+Define an image to be used as profile picture for your slackBot message
+
+#### icon_emoji
+Type: `String`
+Default: `null`
+
+Alternatively define a emoji as profile picture. This overwrites `icon_url`
+
 
 ### Usage Examples
 
@@ -69,7 +117,36 @@ slack_notifier: {
       token: 'EXAMPLE-TOKEN',
       channel: '#notifications',
       text: 'Deploying to production...',
-      username: 'Grunt.js'
+      username: 'Grunt.js',
+      as_user: false,
+      parse: 'full',
+      link_names: true,
+      attachments: [
+        {
+          'fallback': 'Required plain-text summary of the attachment.',
+          'color': '#36a64f',
+          'pretext': 'Optional text that appears above the attachment block',
+          'author_name': 'Bobby Tables',
+          'author_link': 'http://flickr.com/bobby/',
+          'author_icon': 'http://flickr.com/icons/bobby.jpg',
+          'title': 'Slack API Documentation',
+          'title_link': 'https://api.slack.com/',
+          'text': 'Optional text that appears within the attachment',
+          'fields': [
+            {
+              'title': 'Priority',
+              'value': 'High',
+              'short': false
+            }
+          ],
+          'image_url': 'http://my-website.com/path/to/image.jpg',
+          'thumb_url': 'http://example.com/path/to/thumb.png'
+        }
+      ],
+      unfurl_links: true,
+      unfurl_media: true,
+      icon_url: 'http://my-website.com/path/to/image.jpg',
+      icon_emoji: ':stuck_out_tongue_winking_eye:'
     }
   }
 }
@@ -89,6 +166,7 @@ slack_notifier: {
           return 'Deployed customer ' + customerName + ' with customer ID ' + currentId;
       },
       username: 'Grunt.js'
+      ...
     }
   }
 }
