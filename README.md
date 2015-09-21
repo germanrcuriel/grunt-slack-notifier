@@ -47,9 +47,10 @@ Channel to send message to. Can be a public channel, private group or IM channel
 
 
 #### text
-Type: `String`
+Type: `String` or `Function`
 
 Text of the message to send. Messages are formatted as described in the [formatting spec](https://api.slack.com/docs/formatting).
+You can also define the text as function so you're able to build the text at run time.
 
 
 #### username
@@ -74,6 +75,24 @@ slack_notifier: {
 }
 ```
 
+alternatively you can define the text as a function:
+
+```js
+slack_notifier: {
+  notification: {
+    options: {
+      token: 'EXAMPLE-TOKEN',
+      channel: '#notifications',
+      text: function(grunt, options) {
+          var currentId = grunt.config.get('customerId'),
+              customerName = customers.getCustomerName(currentId);
+          return 'Deployed customer ' + customerName + ' with customer ID ' + currentId;
+      },
+      username: 'Grunt.js'
+    }
+  }
+}
+```
 
 ## Release history
 
