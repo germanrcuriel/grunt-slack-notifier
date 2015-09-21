@@ -57,7 +57,7 @@ module.exports = (grunt) ->
 
     slack.api.chat.postMessage
       channel: options.channel
-      text: if typeof options.text is 'function' then options.text(grunt, options) else options.text
+      text: if grunt.util.kindOf(options.text) is 'function' then options.text(grunt, options) else options.text
       username: options.username
       as_user: options.as_user,
       parse: options.parse,
