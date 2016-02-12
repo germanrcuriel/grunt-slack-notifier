@@ -1,10 +1,10 @@
 {
   "name": "grunt-slack-notifier",
   "description": "Slack notifications from grunt",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "author": "Germán Robledo <germanrcuriel@gmail.com>",
   "dependencies": {
-    "slack-api-client": "^0.0.2"
+    "slack-api-client": "^0.1.0"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

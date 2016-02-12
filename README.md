@@ -174,5 +174,6 @@ slack_notifier: {
 
 ## Release history
 
+ * 2016-12-02 v0.1.0  Use slack-api-client ^0.1.0
  * 2015-06-04 v0.0.3  Fix package.json keywords
  * 2015-03-31 v0.0.2  First release
